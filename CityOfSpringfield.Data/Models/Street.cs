@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CityOfSpringfield.Models
+namespace CityOfSpringfield.Data.Models
 {
     public class Street
     {
