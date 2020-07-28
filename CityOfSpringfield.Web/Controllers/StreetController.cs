@@ -10,7 +10,7 @@ namespace CityOfSpringfield.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class WeatherForecastController : ControllerBase
+    public class StreetController : ControllerBase
     {
         private static readonly string[] Directions = new[]
         {
