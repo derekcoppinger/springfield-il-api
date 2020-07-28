@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using CityOfSpringfield.Data.Models;
 
 namespace CityOfSpringfield.Controllers
 {
@@ -11,27 +12,26 @@ namespace CityOfSpringfield.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
+        private static readonly string[] Directions = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "N", "S", "E", "W", "NE", "NW", "SE", "SW"
         };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<StreetController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public StreetController(ILogger<StreetController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<Street> Get()
         {
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            return Enumerable.Range(1, 5).Select(index => new Street
             {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Name = "New Street!",
+                Direction = Directions[rng.Next(Directions.Length)]
             })
             .ToArray();
         }
